@@ -1,10 +1,10 @@
 body {
-    font: 15px Arial;
+    font: 16px Times;
 }
 .circle {
     position: absolute;
-    width: 25px;
-    height: 25px;
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
     border: 1px solid black;
 }
