@@ -1,0 +1,54 @@
+body {
+    font: 12px Verdana;
+}
+.circle {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    border: 1px solid black;
+}
+.circle.style1 {
+    border-color: red;
+}
+.circle.style2 {
+    border-color: green;
+}
+.circle.style3 {
+    border-color: orange;
+}
+.circle.style4 {
+    border-radius: 0;
+}
+.circle.style5 {
+    border-radius: 0;
+    transform: rotate(45deg);
+}
+.circle.active {
+    background-color: yellow;
+}
+#contextmenu {
+    border: 1px solid black;
+    width: 100px;
+    display: none;
+    position: absolute;
+    z-index: 1;
+    background-color: #eeeeee;
+}
+#contextmenu ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+#contextmenu ul li {
+
+}
+#contextmenu ul li a {
+    text-decoration: none;
+    color: black;
+    display: block;
+    padding:5px;
+}
+#contextmenu ul li a:hover {
+    background-color: yellow;
+}
