@@ -1,4 +1,4 @@
-let activeElement = null;
+let currentElement = null;
 let mouseCoord = {x: 0, y: 0};
 document.documentElement.addEventListener('contextmenu', (event) => {
     event.preventDefault();
@@ -36,42 +36,42 @@ function moveElement(element, dx, dy) {
 }
 
 function setActiveElement(element) {
-    if (activeElement === element)
+    if (currentElement === element)
         return;
     element.classList.add('active');
-    if (activeElement !== null)
-        activeElement.classList.remove('active');
-    activeElement = element;
+    if (currentElement !== null)
+        currentElement.classList.remove('active');
+    currentElement = element;
 }
 
 document.documentElement.addEventListener('keydown', (event) => {
     event.preventDefault();
-    if (activeElement === null)
+    if (currentElement === null)
         return;
     switch (event.code) {
         case 'ArrowUp':
-            moveElement(activeElement, 0, -10);
+            moveElement(currentElement, 0, -10);
             break;
         case 'ArrowDown':
-            moveElement(activeElement, 0, 10);
+            moveElement(currentElement, 0, 10);
             break;
         case 'ArrowLeft':
-            moveElement(activeElement, -10, 0);
+            moveElement(currentElement, -10, 0);
             break;
         case 'ArrowRight':
-            moveElement(activeElement, 10, 0);
+            moveElement(currentElement, 10, 0);
             break;
         case 'Tab':
             if (event.shiftKey) {
-                if (activeElement.previousElementSibling !== null &&
-                    activeElement.previousElementSibling.classList.contains('circle'))
-                    setActiveElement(activeElement.previousElementSibling);
+                if (currentElement.previousElementSibling !== null &&
+                    currentElement.previousElementSibling.classList.contains('circle'))
+                    setActiveElement(currentElement.previousElementSibling);
                 else
                     setActiveElement(document.querySelector('.circle:last-child'));
             } else {
-                if (activeElement.nextElementSibling !== null &&
-                    activeElement.nextElementSibling.classList.contains('circle')) {
-                    setActiveElement(activeElement.nextElementSibling);
+                if (currentElement.nextElementSibling !== null &&
+                    currentElement.nextElementSibling.classList.contains('circle')) {
+                    setActiveElement(currentElement.nextElementSibling);
                 } else {
                     setActiveElement(document.querySelector('.circle'));
                 }
@@ -100,7 +100,7 @@ document.documentElement.addEventListener('mousemove', (event) => {
     let dy = coordY - mouseCoord.y;
     mouseCoord.x = coordX;
     mouseCoord.y = coordY;
-    moveElement(activeElement, dx, dy);
+    moveElement(currentElement, dx, dy);
 });
 
 document.documentElement.addEventListener('mouseup', (event) => {
@@ -112,10 +112,10 @@ document.documentElement.addEventListener('click', (event) => {
     event.preventDefault();
     if (currentTag.tagName === 'A' && currentTag.closest('#contextmenu'))
     {
-        activeElement.classList.remove(...activeElement.classList);
-        activeElement.classList.add('circle');
-        activeElement.classList.add('active');
-        activeElement.classList.add(
+        currentElement.classList.remove(...currentElement.classList);
+        currentElement.classList.add('circle');
+        currentElement.classList.add('active');
+        currentElement.classList.add(
             currentTag.getAttribute('href').slice(1)
         )
     } else
