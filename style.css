@@ -1,12 +1,12 @@
 body {
-    font: 12px Verdana;
+    font: 13px Verdana;
 }
 .circle {
     position: absolute;
     width: 25px;
     height: 25px;
     border-radius: 50%;
-    border: 1px solid black;
+    border: 2px solid black;
 }
 .circle.style1 {
     border-color: red;
@@ -15,10 +15,10 @@ body {
     border-color: green;
 }
 .circle.style3 {
-    border-color: orange;
+    border-color: violet;
 }
 .circle.style4 {
-    border-radius: 0;
+    border-radius: 10%;
 }
 .circle.style5 {
     border-radius: 0;
