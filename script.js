@@ -1,8 +1,5 @@
 let currentElement = null;
 let mouseCoord = {x: 0, y: 0};
-
-
-
 document.documentElement.addEventListener('contextmenu', (event) => {
     event.preventDefault();
     showContextMenu(event.clientX, event.clientY);
